@@ -1,9 +1,13 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import api from "./services/api";
-import PeopleDetails from "./PeopleDetails";
+import PeopleDetails from "./Components/PeopleDetails/PeopleDetails";
 import Loading from "./Components/Loading/Loading";
-import { useOnClickOutside } from "./Hooks/";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 function App(props) {
   const [loading, setLoading] = useState(true);
@@ -11,8 +15,6 @@ function App(props) {
   const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
   const [people, setPeople] = useState(null);
-  const ref = useRef();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getPeoples = async url => {
     setLoading(true);
     await api
@@ -20,25 +22,24 @@ function App(props) {
       .then(resp => {
         setData(resp.data);
         setLoading(false);
-        window.scrollTo(0, 10);
+        // eslint-disable-next-line no-undef
+        window.scrollTo(0, 0);
       })
       .catch(err => {
         setError(true);
-        console.log(err);
       });
-    return;
   };
   useEffect(() => {
-    getPeoples("https://swapi.co/api/people/");
+    getPeoples();
   }, []);
   useEffect(() => {}, [data]);
+  useEffect(() => {}, [show]);
   const setModalVisible = item => {
     setPeople(item);
     setShow(!show);
   };
-  useOnClickOutside(ref, () => setShow(false));
   return (
-    <div className="App">
+    <div className="App" onClick={() => setShow(!show)}>
       <Header title="Star Wars" className="header" />
       {error && <h3 className="error">Error :(</h3>}
       {!error && loading ? (
@@ -52,22 +53,16 @@ function App(props) {
                 key={key}
                 onClick={() => setModalVisible(item)}
               >
-                <img
-                  src="https://www.google.com/search?tbm=isch&q=car"
-                  alt="img"
-                  className="image-person-card"
-                />
+                <img src="#" alt="img" className="image-person-card" />
                 <h2>{item.name}</h2>
               </div>
             ))}
         </div>
       )}
-      <div className="button-botttom">
-        <button onClick={() => getPeoples(data.next)}>Buscar mais</button>
-      </div>
-      {show && (
-        <PeopleDetails ref={ref} {...props} show={show} people={people} />
-      )}
+      <Footer onClick={() => getPeoples(data.next)} text="Carregar mais" />
+      {show && people ? (
+        <PeopleDetails {...props} show={show} people={people} />
+      ) : null}
     </div>
   );
 }

@@ -13,7 +13,7 @@
   overflow-y: visible;
 }
 .header {
-  height: 100px;
+  height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,11 +24,11 @@
   letter-spacing: 2px;
 }
 .main {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh);
   padding: 10px;
-  max-height: auto;
+  max-height: fit-content;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -45,12 +45,13 @@ h3.error {
 }
 .card-person {
   width: 90%;
-  height: 45%;
+  height: 500px;
+  max-height: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  max-width: 400px;
+  max-width: 450px;
   /* background-color: #ff2; */
   margin: 20px 20px;
   cursor: pointer;
@@ -74,45 +75,85 @@ h3.error {
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.3);
 }
-
-div.modal {
-  width: 90vw;
-  max-width: 380px;
-  min-height: 500px;
+.Modal-main {
+  width: 100%;
+  height: 100%;
   display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   position: absolute;
   position: fixed;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+div.modal {
+  width: 100%;
+  max-width: 500px;
+  min-height: fit-content;
+  display: flex;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* position: absolute; */
+  /* position: fixed; */
+  overflow: scrool;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 8px;
   max-height: auto;
+  margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #999;
+  margin: 5px 0 5px 0;
+}
+.modal h2,
+h4 {
+  margin: 10px 30px;
+}
 .modal img {
   width: 100%;
-  height: 300px;
+  height: 200px;
 }
-.modal span {
-  margin-top: 10px;
+.modal p {
+  margin: 3px 50px;
+}
+.modal p span {
+  color: tomato;
+  margin-left: 5px;
+}
+.planet-info {
+  width: 100%;
+  min-height: 100px;
+  height: fit-content;
+  border-bottom: 1px solid #999;
+}
+.planet-info:last-child {
+  border-bottom: 0;
+}
+.planet-info p {
+  margin: 5px 0 5px 50px;
+}
+.planet-info p span {
+  color: tomato;
+  margin-left: 5px;
 }
 .button-botttom {
   width: 100%;
-  height: 54px;
-  position: fixed;
+  height: 70px;
   display: flex;
-  flex-direction: column;
+  position: fixed;
   align-items: center;
   justify-content: center;
-  background-color: tomato;
-  opacity: 0.6;
   bottom: 0;
-  right: 0;
+  left: 0;
+  background-color: tomato;
+  opacity: 0.2;
 }
 .button-botttom button {
   width: 150px;
