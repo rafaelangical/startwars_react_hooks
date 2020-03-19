@@ -35,7 +35,6 @@ export default function PeopleDetails(props) {
         });
     return setData;
   }, [people, people.starships, show]);
-  console.log("DATA", data);
   return (
     people && (
       <div className="Modal-main">

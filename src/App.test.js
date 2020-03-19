@@ -4,8 +4,8 @@ import { render } from "@testing-library/react";
 import App from "./App";
 
 // eslint-disable-next-line no-undef
-test("renders learn react link", () => {
+test("renders title of page", () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+  const linkElement = getByText(/Star Wars/i);
   expect(linkElement).toBeInTheDocument();
 });

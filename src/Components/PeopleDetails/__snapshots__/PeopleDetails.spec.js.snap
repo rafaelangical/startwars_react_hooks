@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly but not visual effect 1`] = `
+<div
+  className="Modal-main"
+>
+  <div
+    className="modal"
+  >
+    <div
+      className="lds-ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="Modal-main"
+>
+  <div
+    className="modal"
+  >
+    <div
+      className="lds-ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;

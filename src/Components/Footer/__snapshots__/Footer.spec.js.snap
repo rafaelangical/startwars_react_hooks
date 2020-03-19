@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly footer 1`] = `
+<footer
+  className="button-botttom"
+>
+  <button
+    type="submit"
+  >
+    Carregar mais
+  </button>
+</footer>
+`;

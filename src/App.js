@@ -18,11 +18,12 @@ function App(props) {
   const getPeoples = async url => {
     setLoading(true);
     await api
-      .get(url || "https://swapi.co/api/people/")
+      .get(url || "https://swapi.co/api/peopless/")
       .then(resp => {
         setData(resp.data);
         setLoading(false);
         // eslint-disable-next-line no-undef
+        console.log(resp);
         window.scrollTo(0, 0);
       })
       .catch(err => {
