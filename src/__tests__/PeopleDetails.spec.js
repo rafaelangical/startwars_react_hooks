@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 import React from "react";
 import renderer from "react-test-renderer";
-import PeopleDetails from "./PeopleDetails";
+import PeopleDetails from "../Components/PeopleDetails/PeopleDetails";
 
 it("renders correctly but not visual effect", () => {
   const people = {};

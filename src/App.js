@@ -56,6 +56,7 @@ function App(props) {
               >
                 <img src="#" alt="img" className="image-person-card" />
                 <h2>{item.name}</h2>
+                <p>Clique para mostrar detalhes</p>
               </div>
             ))}
         </div>

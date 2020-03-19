@@ -34,6 +34,12 @@ yarn install or npm install
 yarn start or npm start
 ```
 
+### Run tests
+
+```
+yarn test or npm run test
+```
+
 ## Stack tech
 
 ### App
