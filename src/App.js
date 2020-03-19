@@ -18,7 +18,7 @@ function App(props) {
   const getPeoples = async url => {
     setLoading(true);
     await api
-      .get(url || "https://swapi.co/api/peopless/")
+      .get(url || "https://swapi.co/api/people/")
       .then(resp => {
         setData(resp.data);
         setLoading(false);
