@@ -16,13 +16,13 @@
     "lint": "eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn test"
+      "pre-commit": "yarn test",
+      "pre-push": "yarn lint"
     }
   },
   "eslintConfig": {

@@ -40,32 +40,34 @@ function App(props) {
     setShow(!show);
   };
   return (
-    <div className="App" onClick={() => setShow(!show)}>
-      <Header title="Star Wars" className="header" />
-      {error && <h3 className="error">Error :(</h3>}
-      {!error && loading ? (
-        <Loading />
-      ) : (
-        <div className="main">
-          {data &&
-            data.results.map((item, key) => (
-              <div
-                className="card-person"
-                key={key}
-                onClick={() => setModalVisible(item)}
-              >
-                <img src="#" alt="img" className="image-person-card" />
-                <h2>{item.name}</h2>
-                <p>Clique para mostrar detalhes</p>
-              </div>
-            ))}
-        </div>
-      )}
+    <>
+      <div className="App" onClick={() => show && setShow(false)}>
+        <Header title="Star Wars" className="header" />
+        {error && <h3 className="error">Error :(</h3>}
+        {!error && loading ? (
+          <Loading />
+        ) : (
+          <div className="main">
+            {data &&
+              data.results.map((item, key) => (
+                <div
+                  className="card-person"
+                  key={key}
+                  onClick={() => setModalVisible(item)}
+                >
+                  <img src="#" alt="img" className="image-person-card" />
+                  <h2>{item.name}</h2>
+                  <p>Clique para mostrar detalhes</p>
+                </div>
+              ))}
+          </div>
+        )}
+        {show && people ? (
+          <PeopleDetails {...props} show={show} people={people} />
+        ) : null}
+      </div>
       <Footer onClick={() => getPeoples(data.next)} text="Carregar mais" />
-      {show && people ? (
-        <PeopleDetails {...props} show={show} people={people} />
-      ) : null}
-    </div>
+    </>
   );
 }
 
