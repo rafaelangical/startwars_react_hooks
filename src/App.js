@@ -43,7 +43,13 @@ function App(props) {
     <>
       <div className="App" onClick={() => show && setShow(false)}>
         <Header title="Star Wars" className="header" />
-        {error && <h3 className="error">Error :(</h3>}
+        {error && (
+          <h3 className="error">
+            Erro :( <br />
+            <br />
+            Por favor atualize a página e tente novamente
+          </h3>
+        )}
         {!error && loading ? (
           <Loading />
         ) : (
@@ -66,7 +72,10 @@ function App(props) {
           <PeopleDetails {...props} show={show} people={people} />
         ) : null}
       </div>
-      <Footer onClick={() => getPeoples(data.next)} text="Carregar mais" />
+      <Footer
+        onClick={() => !error && getPeoples(data.next)}
+        text="Carregar mais"
+      />
     </>
   );
 }
